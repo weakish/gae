@@ -1,0 +1,69 @@
+application: weakish
+version: 1
+runtime: python
+api_version: 1
+
+default_expiration: "1d"
+
+handlers:
+- url: /
+  static_files: weakish/index.xhtml
+  upload: weakish/index.xhtml
+
+- url: /pubkey.asc
+  static_files: weakish/pubkey.asc
+  upload: weakish/pubkey.asc
+  mime_type: "text/plain"
+  expiration: "3650d"
+  secure: always
+
+- url: /logo
+  static_dir: logo
+  expiration: "365d"
+
+## rST online render
+- url: /rest.py
+  script: rest.py
+
+- url: /sign
+  script: rest.py
+
+## gallery
+- url: /img
+  static_dir: img
+  expiration: "30d"
+
+## ikiwiki mirror
+- url: /ikiwiki/
+  static_files: ikiwiki/index.html
+  upload: ikiwiki/index.html
+
+# Users may omit the ending '/'
+- url: /ikiwiki
+  static_files: ikiwiki/index.html
+  upload: ikiwiki/index.html
+
+
+- url: /ikiwiki/(.*\.(gif|png|jpg|css|js|ico|txt))
+  static_files: ikiwiki/\1
+  upload: ikiwiki/(.*\.(gif|png|jpg|css|js|ico|txt))
+  expiration: "30d"
+
+- url: /ikiwiki/(.*\.html)
+  static_files: ikiwiki/\1
+  upload: ikiwki/(.*\.html)
+
+- url: /ikiwiki/(.*\.\w+)
+  static_files: ikiwiki/\1
+  upload: ikiwki/(.*\.\w+)
+  expiration: "30d"
+
+
+- url: /ikiwiki/(.*)/
+  static_files: ikiwiki/\1/index.html
+  upload: ikiwiki/(.*)/index.html
+
+- url: /ikiwiki/(.*)
+  static_files: ikiwiki/\1/index.html
+  upload: ikiwiki/(.*)/index.html
+

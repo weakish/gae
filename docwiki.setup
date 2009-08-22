@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+# Configuration file for ikiwiki to build its documentation wiki.
+
+use IkiWiki::Setup::Standard {
+	wikiname => "ikiwiki",
+	srcdir => "doc",
+	destdir => "/Users/Shared/repo/gae/ikiwiki",
+	url => 'http://weakish.appspot.com/ikiwiki/',
+	templatedir => "templates",
+	underlaydir => "underlays/basewiki",
+	discussion => 0,
+    exclude => qr/\/discussion|bugs\/*|todo\/*/,
+	locale => '',
+	verbose => 1,
+	syslog => 0,
+	userdir => "users",
+	usedirs => 1,
+	prefix_directives => 1,
+	# rcs backend to use
+	rcs => 'git',
+	add_plugins => [qw{goodstuff version haiku polygen fortune}],
+	# gitweb url to show file history ([[file]] substituted)
+	historyurl => 'http://git.ikiwiki.info/?p=ikiwiki;a=history;f=doc/[[file]]',
+	# gitweb url to show a diff ([[sha1_to]], [[sha1_from]], [[sha1_parent]], [[sha1_commit]] and [[file]] substituted)
+	diffurl => 'http://git.ikiwiki.info/?p=ikiwiki;a=blobdiff;h=[[sha1_to]];hp=[[sha1_from]];hb=[[sha1_parent]];f=doc/[[file]]',
+	# recentchanges plugin
+	# name of the recentchanges page
+	recentchangespage => 'recentchanges',
+	# number of changes to track
+	recentchangesnum => 100,
+}
