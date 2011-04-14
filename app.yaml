@@ -10,6 +10,9 @@ handlers:
   static_files: weakish/index.xhtml
   upload: weakish/index.xhtml
 
+- url: /zhtran
+  script: stupidm_web_gae.py
+
 - url: /pubkey.asc
   static_files: weakish/pubkey.asc
   upload: weakish/pubkey.asc
@@ -21,14 +24,3 @@ handlers:
   static_dir: logo
   expiration: "365d"
 
-## rST online render
-- url: /rest.py
-  script: rest.py
-
-- url: /sign
-  script: rest.py
-
-## gallery
-- url: /img
-  static_dir: img
-  expiration: "30d"
