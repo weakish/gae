@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # by weakish <weakish@gmail.com>, licensed under GPL v2.
 
+
+
 import stupidm_py2 as stupidm
 from bottle import get, post, request, default_app
 from google.appengine.ext.webapp.util import run_wsgi_app
@@ -32,8 +34,7 @@ FORM = unicode('''
 
 FOOTER =unicode('''
     <hr />
-    <p>Powered by <a href="http://gist.github.com/510960">stupidm</a>, 
-    and <a href="http://code.google.com/p/open-chinese-convert/">opencc</a>.  <a href="http://validator.w3.org/check/referer">Valid html5</a>. <a href="http://flattr.com/thing/89312/stupidm">Flattr this!</a></p>
+    <p>Powered by <a href="http://gist.github.com/510960">stupidm</a>.  <a href="http://validator.w3.org/check/referer">Valid html5</a>. <a href="http://flattr.com/thing/89312/stupidm">Flattr this!</a></p>
     </body>
     ''', encoding='utf-8')
 
